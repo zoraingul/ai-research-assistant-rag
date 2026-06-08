@@ -23,14 +23,14 @@ def retrieve_chunks(question , model , index , chunks , k=3):
     question_embedding = np.array(question_embedding).astype("float32")
     question_embedding = question_embedding.reshape(1 , -1)
     
-    distances , indeces = index.search (
+    distances , indices = index.search (
         question_embedding , 
         k
     )
     
     retrieved_chunks = []
     
-    for idx in indeces[0]:
+    for idx in indices[0]:
         retrieved_chunks.append(chunks[idx])
     
     return retrieved_chunks
